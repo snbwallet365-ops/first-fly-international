@@ -1,0 +1,25 @@
+# Only the Google OAuth redirect endpoint is intentionally public. It verifies a
+# one-time, hashed, short-lived state value before exchanging an authorization code.
+[functions.google-oauth-callback]
+verify_jwt = false
+
+[functions.google-oauth-start]
+verify_jwt = true
+
+[functions.google-connection-status]
+verify_jwt = true
+
+[functions.google-disconnect]
+verify_jwt = true
+
+[functions.google-workspace-action]
+verify_jwt = true
+
+[functions.invite-agent]
+verify_jwt = true
+
+[functions.visa-document-analysis]
+verify_jwt = true
+
+[functions.visa-case-assistant]
+verify_jwt = true
