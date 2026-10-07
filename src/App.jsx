@@ -6,6 +6,8 @@ import { authLinkType, isSupabaseConfigured, missingPublicConfig, supabase, invo
 
 const import_react27 = { default: React, useCallback, useEffect, useMemo, useRef, useState };
 // src/App.jsx
+var ASSET_BASE = String(import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+var asset = (path) => `${ASSET_BASE}${path.startsWith("/") ? path : `/${path}`}`;
 var cn = (...classes) => classes.filter(Boolean).join(" ");
 var initials = (value = "FF") => String(value).trim().split(/\s+/).slice(0, 2).map((part) => part[0] || "").join("").toUpperCase() || "FF";
 var formatDate = (value, options = { day: "2-digit", month: "short", year: "numeric" }) => value ? new Intl.DateTimeFormat("bn-BD", options).format(new Date(value)) : "\u2014";
@@ -25,7 +27,7 @@ var safeFileName = (name = "file") => name.normalize("NFKD").replace(/[^a-zA-Z0-
 var BUCKET_DOCUMENTS = "applicant-documents";
 var MAX_FILE_SIZE = 30 * 1024 * 1024;
 function Logo({ large = false }) {
-  return /* @__PURE__ */ import_react27.default.createElement("div", { className: cn("brand-icon", large && "large") }, /* @__PURE__ */ import_react27.default.createElement("img", { src: "/icon.svg", alt: "" }));
+  return /* @__PURE__ */ import_react27.default.createElement("div", { className: cn("brand-icon", large && "large") }, /* @__PURE__ */ import_react27.default.createElement("img", { src: asset("/icon.svg"), alt: "" }));
 }
 function Brand({ compact = false, onClick }) {
   return /* @__PURE__ */ import_react27.default.createElement("button", { type: "button", className: "brand", onClick, "aria-label": "First Fly \u09B9\u09CB\u09AE" }, /* @__PURE__ */ import_react27.default.createElement(Logo, null), /* @__PURE__ */ import_react27.default.createElement("span", null, /* @__PURE__ */ import_react27.default.createElement("b", { className: "brand-name" }, "FIRST FLY INTERNATIONAL"), /* @__PURE__ */ import_react27.default.createElement("small", { className: "brand-tag" }, "\u0986\u09AA\u09A8\u09BE\u09B0 \u09AD\u09BF\u09B8\u09BE, \u0986\u09AE\u09BE\u09A6\u09C7\u09B0 \u0985\u0997\u09CD\u09B0\u09BE\u09A7\u09BF\u0995\u09BE\u09B0")));
@@ -123,13 +125,13 @@ function WelcomeScreen({ onChooseRole, onInstall, theme, onTheme, setupNeeded })
       </header>
 
       <section className="welcome-intro">
-        <img className="welcome-logo" src="/brand/first-fly-logo-reference.png" alt="First Fly International — Your Visa, Our Priority" />
+        <img className="welcome-logo" src={asset("/brand/first-fly-logo-reference.png")} alt="First Fly International — Your Visa, Our Priority" />
         <h1>স্বাগতম</h1>
         <p>আপনি কীভাবে প্রবেশ করতে চান?</p>
       </section>
 
       <figure className="welcome-travel-hero">
-        <img src="/images/travel-hero-reference.png" alt="আন্তর্জাতিক ভ্রমণ, বিমান, পাসপোর্ট ও গন্তব্যের দৃশ্য" />
+        <img src={asset("/images/travel-hero-reference.png")} alt="আন্তর্জাতিক ভ্রমণ, বিমান, পাসপোর্ট ও গন্তব্যের দৃশ্য" />
         <figcaption><span>TRAVEL WITH CONFIDENCE</span><b>আপনার পরবর্তী গন্তব্যের প্রস্তুতি শুরু হোক সঠিকভাবে।</b></figcaption>
       </figure>
 
